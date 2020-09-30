@@ -1,29 +1,15 @@
 import 'package:flutter/material.dart';
+import 'ImageSlider/home.dart';
 
-main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
 
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("Images Slider"),),
-        body: Center(
-          child: Column(
-            children: [
 
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+
+
+
+
+// -------> ImageSlider
+    main() => runApp(Home());
 
 
 
