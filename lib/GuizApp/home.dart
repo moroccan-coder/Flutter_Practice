@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -23,6 +24,31 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
+
+  /*List<String> questions = [
+    'Flutter is mobile development SDK',
+    'Css is a programing language',
+    'ReactJS is a Javascript Framework',
+  ];*/
+  
+  List<Question> questions = [
+    new Question("Flutter is mobile development SDK", true),
+    Question("Css is a programing language",false),
+    new Question("ReactJS is a Javascript Framework", true),
+  ];
+
+
+
+  int currentQ = 0;
+  int score = 0;
+
+  void nextQuestion()
+  {
+setState(() {
+  currentQ++;
+});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,7 +58,7 @@ class _QuestionPageState extends State<QuestionPage> {
         Expanded(
           flex: 4,
           child: Text(
-            'I love Flutter',
+            questions[currentQ].quest,
             style: TextStyle(fontSize: 20, color: Colors.white60),
           ),
         ),
@@ -52,12 +78,14 @@ class _QuestionPageState extends State<QuestionPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              onPressed: () {},
+              onPressed: () {
+             nextQuestion();
+              },
             ),
           ),
         ),
         SizedBox(
-          height: 30.0,
+          height: 10.0,
         ),
         Expanded(
           flex: 1,
@@ -67,7 +95,7 @@ class _QuestionPageState extends State<QuestionPage> {
             splashColor: Colors.lightBlue,
             child: RaisedButton(
               child: Text(
-                'True',
+                'False',
                 style: TextStyle(
                   fontSize: 20,
                 ),
