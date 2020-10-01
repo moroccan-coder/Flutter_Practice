@@ -24,29 +24,21 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
-
-  /*List<String> questions = [
-    'Flutter is mobile development SDK',
-    'Css is a programing language',
-    'ReactJS is a Javascript Framework',
-  ];*/
-  
   List<Question> questions = [
     new Question("Flutter is mobile development SDK", true),
-    Question("Css is a programing language",false),
+    Question("Css is a programing language", false),
     new Question("ReactJS is a Javascript Framework", true),
   ];
 
-
-
   int currentQ = 0;
   int score = 0;
+  int correctCounter = 0;
+  int wrongCounter = 0;
 
-  void nextQuestion()
-  {
-setState(() {
-  currentQ++;
-});
+  void nextQuestion(bool answer) {
+    setState(() {
+      currentQ++;
+    });
   }
 
   @override
@@ -79,7 +71,7 @@ setState(() {
                 borderRadius: BorderRadius.circular(20),
               ),
               onPressed: () {
-             nextQuestion();
+                nextQuestion(true);
               },
             ),
           ),
@@ -103,35 +95,53 @@ setState(() {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              onPressed: () {},
+              onPressed: () {
+                nextQuestion(false);
+              },
             ),
           ),
         ),
         SizedBox(
           height: 40,
         ),
-       Expanded(
-         flex: 2,
-         child:  Row(
-           mainAxisAlignment: MainAxisAlignment.spaceAround,
-           children: [
-             Column(
-               children: [
-                 Text("Correct",style: TextStyle(color: Colors.white70,fontSize: 18),),
-                 SizedBox(height: 12,),
-                 Text('10',style: TextStyle(color: Colors.white70,fontSize: 18),),
-               ],
-             ),
-             Column(
-               children: [
-                 Text("Correct",style: TextStyle(color: Colors.white70,fontSize: 18),),
-                 SizedBox(height: 12,),
-                 Text('10',style: TextStyle(color: Colors.white70,fontSize: 18),),
-               ],
-             )
-           ],
-         ),
-       )
+        Expanded(
+          flex: 2,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    "Correct",
+                    style: TextStyle(color: Colors.white70, fontSize: 18),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    correctCounter.toString(),
+                    style: TextStyle(color: Colors.white70, fontSize: 18),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    "Wrong",
+                    style: TextStyle(color: Colors.white70, fontSize: 18),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    wrongCounter.toString(),
+                    style: TextStyle(color: Colors.white70, fontSize: 18),
+                  ),
+                ],
+              )
+            ],
+          ),
+        )
       ],
     );
   }
