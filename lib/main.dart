@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'ImageSlider/home.dart';
+import 'GuizApp//home.dart';
 
 
 
 
+
+
+
+// -----> QuizApp
+main() =>runApp(Home());
 
 
 
 
 // -------> ImageSlider
-    main() => runApp(Home());
+   // main() => runApp(Home());
 
 
 
