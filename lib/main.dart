@@ -1,14 +1,52 @@
 import 'package:flutter/material.dart';
-import 'GuizApp//home.dart';
+import 'package:flutter_first_app/routes/NamedRouting///home.dart';
 
 
 
+
+
+// ------> Named Routing
+main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Named routes',
+      initialRoute: '/',
+      routes: {
+        '/' : (context) =>Home(),
+
+      },
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+// -----> Simple Routing
+    /*main() => runApp(MyApp());
+
+    class MyApp extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          home: Home(),
+        );
+      }
+    }*/
 
 
 
 
 // -----> QuizApp
-main() =>runApp(Home());
+   //main() =>runApp(Home());
 
 
 
