@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
+import 'questions.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -24,21 +24,54 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
-  List<Question> questions = [
-    new Question("Flutter is mobile development SDK", true),
-    Question("Css is a programing language", false),
-    new Question("ReactJS is a Javascript Framework", true),
-  ];
+
 
   int currentQ = 0;
   int score = 0;
   int correctCounter = 0;
   int wrongCounter = 0;
 
-  void nextQuestion(bool answer) {
+  void nextQuestion(bool answer,BuildContext context) {
     setState(() {
+      if (questions[currentQ].answer == answer) {
+        correctCounter++;
+        score += 10;
+      } else {
+        wrongCounter++;
+      }
+
+      if (currentQ == questions.length - 1) {
+        showResult(context);
+        return;
+      }
       currentQ++;
     });
+  }
+
+  void showResult(BuildContext context) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Quiz Completed!'),
+            content: Text('Your Score is $score'),
+            actions: [
+              RaisedButton(
+                child: Text('Replay Quiz'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  setState(() {
+                    currentQ = 0;
+                    correctCounter = 0;
+                    wrongCounter = 0;
+                    score = 0;
+                  });
+                },
+              )
+            ],
+          );
+        });
   }
 
   @override
@@ -71,7 +104,7 @@ class _QuestionPageState extends State<QuestionPage> {
                 borderRadius: BorderRadius.circular(20),
               ),
               onPressed: () {
-                nextQuestion(true);
+                nextQuestion(true,context);
               },
             ),
           ),
@@ -96,7 +129,7 @@ class _QuestionPageState extends State<QuestionPage> {
                 borderRadius: BorderRadius.circular(20),
               ),
               onPressed: () {
-                nextQuestion(false);
+                nextQuestion(false,context);
               },
             ),
           ),
