@@ -1,32 +1,44 @@
-import 'package:flutter/material.dart';
-import 'routes/NamedRouting/home.dart';
-import 'routes/NamedRouting/login.dart';
-import 'routes/NamedRouting/register.dart';
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// ---> StateManagement -> Liftingup State
+     //main() =>runApp(Home());
 
 
 
 
 
 // ------> Named Routing
-main() => runApp(MyApp());
+    /*
+    main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Named routes',
-      initialRoute: '/',
-      routes: {
-        '/' : (context) =>Home(),
-        '/login' : (context) => Login(),
-        '/register' : (context) => Register(),
+    class MyApp extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          title: 'Named routes',
+          initialRoute: '/',
+          routes: {
+            '/' : (context) =>Home(),
+            '/login' : (context) => Login(),
+            '/register' : (context) => Register(),
 
-      },
-    );
-  }
-}
+          },
+        );
+      }
+    }
+    */
 
 
 
