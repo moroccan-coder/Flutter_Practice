@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first_app/routes/NamedRouting///home.dart';
+import 'routes/NamedRouting/home.dart';
+import 'routes/NamedRouting/login.dart';
+import 'routes/NamedRouting/register.dart';
+
+
 
 
 
@@ -16,6 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' : (context) =>Home(),
+        '/login' : (context) => Login(),
+        '/register' : (context) => Register(),
 
       },
     );

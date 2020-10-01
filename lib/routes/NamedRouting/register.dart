@@ -14,7 +14,7 @@ class _RegisterState extends State<Register> {
         child: RaisedButton(
           child: Text('back'),
           onPressed: (){
-
+           Navigator.of(context).pop();
           },
         ),
       ),
