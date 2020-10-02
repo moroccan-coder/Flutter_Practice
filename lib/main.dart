@@ -1,13 +1,24 @@
 
+import 'package:flutter/material.dart';
+import 'package:flutter_first_app/StateManagement/ShopingCard/home.dart';
+import 'package:flutter_first_app/StateManagement/ShopingCard/models/cart.dart';
+import 'package:provider/provider.dart';
 
 
 
 
 
 
-
-
-
+// -----> StateManagement ShopingCard (Provider)
+void main()
+{
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Cart(),
+      child: MyApp(),
+    )
+  );
+}
 
 
 
